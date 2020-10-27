@@ -7,10 +7,10 @@ class VehicleDetails extends Component {
     constructor() {
         super();
         this.state = {
-            vehicle_make: '',
-            vehicle_model: '',
+            vehicle_make: 'Toyota',
+            vehicle_model: 'Camry',
             vehicle_type: '',
-            manufacturing_year: '',
+            manufacturing_year: '2020',
             vehicle_value: ''
         }
     }
@@ -27,24 +27,43 @@ class VehicleDetails extends Component {
 
     render() {
         return (
-                <div className="modal-body mx-4">
-                    <div className="form-group">
-                        <input type="text" name="vehicle_make" value={this.state.vehicle_make} className="form-control" onChange={this.changeDetails} placeholder="Vehicle Make" />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" name="vehicle_model" value={this.state.vehicle_model} className="form-control" onChange={this.changeDetails} placeholder="Vehicle Model" />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" name="vehicle_type" value={this.state.vehicle_type} className="form-control" onChange={this.changeDetails} placeholder="Variant Type" />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" name="manufacturing_year" value={this.state.manufacturing_year} className="form-control" onChange={this.changeDetails} placeholder="Manufacturing Year" />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" name="vehicle_value" value={this.state.vehicle_value} className="form-control" onChange={this.changeDetails} placeholder="Vehicle Value" />
-                    </div>
-                    <button type="submit" className="btn btn-info" onClick={this.setData}>Next</button>
+            <div className="modal-body mx-4">
+                <select className="browser-default custom-select mb-4" name="vehicle_make" onChange={this.changeDetails}>
+                    <option value="" disabled>Choose option</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                </select>
+            
+                <select className="browser-default custom-select mb-4" name="vehicle_model" onChange={this.changeDetails}>
+                    <option value="" disabled>Choose option</option>
+                    <option value="Camry">Camry</option>
+                    <option value="Maruti Suzuki Alto">Maruti Suzuki Alto</option>
+                    <option value="Tata Altroz">Tata Altroz</option>
+                    <option value="Renault Kwid">Renault Kwid</option>
+                </select>
+            
+                <div className="form-group">
+                    <input type="text" name="vehicle_type" value={this.state.vehicle_type} className="form-control" onChange={this.changeDetails} placeholder="Variant Type" />
                 </div>
+                
+            
+                <select className="browser-default custom-select mb-4" name="manufacturing_year" onChange={this.changeDetails}>
+                    <option value="" disabled>Choose option</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                </select>
+            
+                <div className="form-group">
+                    <input type="text" name="vehicle_value" value={this.state.vehicle_value} className="form-control" onChange={this.changeDetails} placeholder="Vehicle Value" />
+                </div>
+            
+                <button type="submit" className="btn btn-info" onClick={this.setData}>Next</button>
+            
+            </div>
         )
     }
 

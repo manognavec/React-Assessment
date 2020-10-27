@@ -36,26 +36,30 @@ class ReachAssessment extends Component {
         let vehicleIcon = '';
         let heading = '';
         let section = '';
+        let classValue = 'heading';
         switch(true) {
             case count === 0: 
                 heading = "Please enter your details"
                 section = <PersonalDetails changeCount={this.changeCount}/>
                 break;
             case count === 1: 
-                heading = "Please enter the 6 digit OTP code received on your phone"
+                heading = "Please enter the 4 digit OTP code received on your phone"
                 section = <NumberVerification changeCount={this.changeCount} />
                 break;
             case count === 2: 
                 heading = "Please choose your vehicle details"
                 vehicleIcon = <i className="vehicle-icon">i</i>
+                classValue = "detailHeading"
                 section = <VehicleDetails changeCount={this.changeCount} />
                 break;
             case count === 3: 
                 heading = "Please enter your details"
+                classValue = "detailHeading"
                 section = <DetailsForm changeCount={this.changeCount} />
                 break;
             case count === 4: 
                 heading = "Successfully Submitted"
+                classValue = "success-msg"
                 section = <SubmitForm changeCount={this.changeCount} />
                 break;
             default: break;
@@ -72,7 +76,7 @@ class ReachAssessment extends Component {
                                 <div className="text-center">
                                     <p className="count-range">{count} of 4 completed</p>
                                     <ProgressBar variant="success" now={progressCount} />
-                                    <h5 className="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">{heading} {vehicleIcon}</h5>
+                                    <h5 className={"modal-title w-100 dark-grey-text font-weight-bold my-3 "+ classValue} id="myModalLabel">{heading} {vehicleIcon}</h5>
                                 </div>
                                 {section}            
                             </div>
